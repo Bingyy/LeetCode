@@ -1,0 +1,2 @@
+# LeetCode
+Personal Leecode thoughts

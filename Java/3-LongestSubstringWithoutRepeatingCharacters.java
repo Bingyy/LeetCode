@@ -39,4 +39,24 @@ class Solution {
         }
         return res;
     }
+  
+    // 基于HashSet的做法
+    public int lengthOfLongestSubstring_version_2(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        HashSet<Character> set = new HashSet<>();
+        int res = 0;
+        
+        for (int i = 0, j = 0; i < s.length();) {
+            if (set.contains(s.charAt(i))) {
+                set.remove(s.charAt(j++));
+            } else {
+                // 手动处理i++
+                set.add(s.charAt(i++)); 
+                res = Math.max(res, set.size());
+            }
+        }
+        return res;
+    }
 }

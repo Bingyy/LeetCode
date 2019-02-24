@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 9.0.0 (457592)"/><meta name="author" content="BING"/><meta name="created" content="2019-02-24 07:29:55 +0000"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2019-02-24 07:39:59 +0000"/><meta name="content-class" content="yinxiang.markdown"/><title>237. Delete Node in a Linked List[Easy]</title></head><body><div style="font-size: 14px; margin: 0; padding: 0; width: 100%;"><p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">[201902224]</p>
+<h3 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 27px; color: #333;">题目描述</h3>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Given linked list -- head = [4,5,1,9], which looks like following:</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="237.%20Delete%20Node%20in%20a%20Linked%20List%5BEasy%5D.resources/56AB90D2-57B0-4B6F-84EE-4533C1F9842B.png" height="65" width="395"/></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Example 1:</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Input: head = [4,5,1,9], node = 5<br/>
+Output: [4,1,9]<br/>
+Explanation: You are given the second node with value 5, the linked list should become 4 -&gt; 1 -&gt; 9 after calling your function.<br/>
+Example 2:</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Input: head = [4,5,1,9], node = 1<br/>
+Output: [4,5,9]<br/>
+Explanation: You are given the third node with value 1, the linked list should become 4 -&gt; 5 -&gt; 9 after calling your function.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Note:</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">The linked list will have at least two elements.<br/>
+All of the nodes' values will be unique.<br/>
+The given node will not be the tail and it will always be a valid node of the linked list.<br/>
+Do not return anything from your function.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">就是有一个链表，然后只给你要删除的这个结点，删除当前结点。</p>
+<h3 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 27px; color: #333;">题解</h3>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">这道题出的真的很高级啊。</p>
+<pre style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; margin: 2px 0 8px; background-color: #f5f7f8;"><code style="display: block; overflow-x: auto; background: #1e1e1e; line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; letter-spacing: -.3px; padding: 18px; color: #f4f4f4; white-space: pre-wrap;"><span style="color: #57a64a; font-style: italic; line-height: 160%; box-sizing: content-box;">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */</span>
+<span style="color: #b8d7a3; line-height: 160%; box-sizing: content-box;"><span style="color: #569cd6; line-height: 160%; box-sizing: content-box;">class</span> <span style="color: #dcdcdc; line-height: 160%; box-sizing: content-box;">Solution</span> {</span>
+<span style="color: #569cd6; line-height: 160%; box-sizing: content-box;">public</span>:
+    <span style="color: #dcdcdc; line-height: 160%; box-sizing: content-box;"><span style="color: #569cd6; line-height: 160%; box-sizing: content-box;">void</span> <span style="color: #dcdcdc; line-height: 160%; box-sizing: content-box;">deleteNode</span><span style="color: #dcdcdc; line-height: 160%; box-sizing: content-box;">(ListNode* node)</span> </span>{
+        node-&gt;val = node-&gt;next-&gt;val;
+        node-&gt;next = node-&gt;next-&gt;next;
+    }
+};
+
+</code></pre>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">直接将结点后面的值存到“待删除的这个结点”上，然后实际在结构上删除的是后序结点。</p>
+</div><center style="display:none !important;visibility:collapse !important;height:0 !important;white-space:nowrap;width:100%;overflow:hidden">%5B201902224%5D%0A%0A%23%23%23%20%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0%0A%0AWrite%20a%20function%20to%20delete%20a%20node%20(except%20the%20tail)%20in%20a%20singly%20linked%20list%2C%20given%20only%20access%20to%20that%20node.%0A%0AGiven%20linked%20list%20--%20head%20%3D%20%5B4%2C5%2C1%2C9%5D%2C%20which%20looks%20like%20following%3A%0A%0A!%5B7296fbd2c58a13bb92dd22759524dcda.png%5D(evernotecid%3A%2F%2FC746BF80-C74E-423B-8538-F19951DA952B%2Fappyinxiangcom%2F3511985%2FENNote%2Fp2590%3Fhash%3D7296fbd2c58a13bb92dd22759524dcda)%0A%0A%0AExample%201%3A%0A%0AInput%3A%20head%20%3D%20%5B4%2C5%2C1%2C9%5D%2C%20node%20%3D%205%0AOutput%3A%20%5B4%2C1%2C9%5D%0AExplanation%3A%20You%20are%20given%20the%20second%20node%20with%20value%205%2C%20the%20linked%20list%20should%20become%204%20-%3E%201%20-%3E%209%20after%20calling%20your%20function.%0AExample%202%3A%0A%0AInput%3A%20head%20%3D%20%5B4%2C5%2C1%2C9%5D%2C%20node%20%3D%201%0AOutput%3A%20%5B4%2C5%2C9%5D%0AExplanation%3A%20You%20are%20given%20the%20third%20node%20with%20value%201%2C%20the%20linked%20list%20should%20become%204%20-%3E%205%20-%3E%209%20after%20calling%20your%20function.%0A%20%0A%0ANote%3A%0A%0AThe%20linked%20list%20will%20have%20at%20least%20two%20elements.%0AAll%20of%20the%20nodes'%20values%20will%20be%20unique.%0AThe%20given%20node%20will%20not%20be%20the%20tail%20and%20it%20will%20always%20be%20a%20valid%20node%20of%20the%20linked%20list.%0ADo%20not%20return%20anything%20from%20your%20function.%0A%0A%E5%B0%B1%E6%98%AF%E6%9C%89%E4%B8%80%E4%B8%AA%E9%93%BE%E8%A1%A8%EF%BC%8C%E7%84%B6%E5%90%8E%E5%8F%AA%E7%BB%99%E4%BD%A0%E8%A6%81%E5%88%A0%E9%99%A4%E7%9A%84%E8%BF%99%E4%B8%AA%E7%BB%93%E7%82%B9%EF%BC%8C%E5%88%A0%E9%99%A4%E5%BD%93%E5%89%8D%E7%BB%93%E7%82%B9%E3%80%82%0A%0A%23%23%23%20%E9%A2%98%E8%A7%A3%0A%0A%E8%BF%99%E9%81%93%E9%A2%98%E5%87%BA%E7%9A%84%E7%9C%9F%E7%9A%84%E5%BE%88%E9%AB%98%E7%BA%A7%E5%95%8A%E3%80%82%0A%0A%60%60%60cpp%0A%2F**%0A%20*%20Definition%20for%20singly-linked%20list.%0A%20*%20struct%20ListNode%20%7B%0A%20*%20%20%20%20%20int%20val%3B%0A%20*%20%20%20%20%20ListNode%20*next%3B%0A%20*%20%20%20%20%20ListNode(int%20x)%20%3A%20val(x)%2C%20next(NULL)%20%7B%7D%0A%20*%20%7D%3B%0A%20*%2F%0Aclass%20Solution%20%7B%0Apublic%3A%0A%20%20%20%20void%20deleteNode(ListNode*%20node)%20%7B%0A%20%20%20%20%20%20%20%20node-%3Eval%20%3D%20node-%3Enext-%3Eval%3B%0A%20%20%20%20%20%20%20%20node-%3Enext%20%3D%20node-%3Enext-%3Enext%3B%0A%20%20%20%20%7D%0A%7D%3B%0A%0A%60%60%60%0A%0A%E7%9B%B4%E6%8E%A5%E5%B0%86%E7%BB%93%E7%82%B9%E5%90%8E%E9%9D%A2%E7%9A%84%E5%80%BC%E5%AD%98%E5%88%B0%E2%80%9C%E5%BE%85%E5%88%A0%E9%99%A4%E7%9A%84%E8%BF%99%E4%B8%AA%E7%BB%93%E7%82%B9%E2%80%9D%E4%B8%8A%EF%BC%8C%E7%84%B6%E5%90%8E%E5%AE%9E%E9%99%85%E5%9C%A8%E7%BB%93%E6%9E%84%E4%B8%8A%E5%88%A0%E9%99%A4%E7%9A%84%E6%98%AF%E5%90%8E%E5%BA%8F%E7%BB%93%E7%82%B9%E3%80%82%0A%0A%E8%BF%99%E4%B8%AA%E9%A2%98%E7%9B%AE%E4%B8%8D%E9%9A%BE%EF%BC%8C%E4%BD%86%E6%98%AF%E6%80%9D%E6%83%B3%E5%BE%88%E9%87%8D%E8%A6%81%E3%80%82%0A%0AEND.</center></body></html>

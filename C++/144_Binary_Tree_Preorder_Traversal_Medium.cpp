@@ -28,3 +28,5 @@ public:
 private:
     vector<int> res;
 }
+
+// there is a report in ./notes/Binary_Tree_Preorder_Traversal.md

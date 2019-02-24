@@ -1,11 +1,14 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+#include "lib.h"
+using namespace std;
+
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL){}
+                                   
+};
+
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -31,8 +34,7 @@ public:
             
             if(l2) {
                 l2 = l2->next;
-            } 
-            
+            }      
         }
         
         if(carry > 0) {

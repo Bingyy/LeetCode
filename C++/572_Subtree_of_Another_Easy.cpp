@@ -33,7 +33,7 @@ class Solution
         }
         return false;
     }
-
+    
     bool traverse(TreeNode *s, TreeNode *t)
     {
         return s && (equals(s, t) || traverse(s->left, t) || traverse(s->right, t));

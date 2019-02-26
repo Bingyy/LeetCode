@@ -29,5 +29,3 @@ class Solution
         return false;
     }
 };
-
-s

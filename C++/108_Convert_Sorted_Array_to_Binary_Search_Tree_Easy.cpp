@@ -1,3 +1,5 @@
+#include "lib.h"
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -11,8 +13,7 @@ class Solution {
 public:
     // 样例的写法是每次寻找当前的根元素相对靠右，一般我们折半查找相对靠左
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        return sortedArrayToBST_h(nums,0, nums.size() - 1);  
-        
+        return sortedArrayToBST_h(nums,0, nums.size() - 1);    
     }
     
     TreeNode* sortedArrayToBST_h(vector<int>& nums, int l, int r) {
